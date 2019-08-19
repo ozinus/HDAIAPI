@@ -34,7 +34,16 @@ exports.update_temperature_and_pulse_of_patient = function(req, res) { //For tem
   Patients.findOneAndUpdate({_id: req.params.PatientId}, req.body, {new: true}, function(err, task) {
     if (err)
       res.send(err);
-      console.log("update_temperature_and_pulse_of_patient " + req.body);
+      //console.log("update_temperature_and_pulse_of_patient " + req.body);
     res.json(task);
   });
 };
+
+exports.find_Temp_Pulse_for_patient = function(req, res) { //For temperatue + Pulse
+  Patients.findById(req.params.PatientId, 'temperature pulse', function(err, patients) {
+    if (err)
+      res.send(err);
+      console.log("find_Temp_Pulse_for_patient " + req.params.PatientId);
+    res.json(patients); 
+  }); 
+}; 
