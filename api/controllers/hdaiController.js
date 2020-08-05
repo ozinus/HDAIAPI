@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
   Patients = mongoose.model('Patients');
 
+  //test comment...
   mongoose.set('debug', true);
 
 exports.list_all_patients = function(req, res) {
